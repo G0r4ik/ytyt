@@ -1,0 +1,751 @@
+.intro {
+  background: url('../img/intro-bg-bottom.png') no-repeat left bottom / contain,
+    url('../img/bg-circle.png') no-repeat center bottom / 100% auto;
+  padding-bottom: 15%;
+}
+
+.intro__inner {
+  text-align: center;
+}
+
+.intro__title {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.intro__title-decor {
+  &:before,
+  &::after {
+    color: #f15525;
+    font-weight: 500;
+    font-size: 20px;
+  }
+
+  &:before {
+    content: '{';
+    margin-right: 5px;
+  }
+  &:after {
+    content: '}';
+    margin-left: 5px;
+  }
+}
+
+.intro__text {
+  font-size: 12px;
+  line-height: 18px;
+  width: 270px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.intro__button {
+  .button();
+  line-height: 96.69%;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-bottom: 65px;
+  max-width: 350px;
+}
+
+.intro__button-img {
+  margin-bottom: -3px;
+  margin-left: 8px;
+}
+
+.intro__img {
+  width: 100%;
+  display: block;
+  padding: 0 30px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.intro__scroll {
+  margin: 0 auto;
+  display: block;
+  text-align: center;
+  margin-top: 10%;
+}
+
+// technologies ///////////////////////////////////////////////////////////////////////////////////
+
+.technologies {
+  background: #fff;
+  padding-bottom: 60px;
+}
+
+.technologies__inner {
+  .card(#EAF2F5);
+  padding: 17px;
+}
+
+.technologies__title {
+  margin-bottom: 20px;
+}
+
+.technologies__img {
+  display: none;
+}
+
+.technologies__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  position: relative;
+}
+
+@colors: #5096ff #ffb359 #ff6f50 #4bd071 #50c0ff #4b77b9 #af93ff;
+.backgrounds(@list, @i: 1) when (@i <= length(@list)) {
+  @color: extract(@list, @i);
+  .technologies__item_@{i} {
+    background: @color;
+  }
+  .backgrounds(@list, @i + 1);
+}
+
+.backgrounds(@colors);
+
+.technologies__item {
+  .flex-center();
+  padding: 10px;
+  border-radius: 44px;
+  flex-grow: 1;
+  color: #fff;
+}
+
+.technologies__text {
+  display: none;
+}
+
+// efficient ///////////////////////////////////////////////////////////////////////////////////
+
+.efficient {
+  background: #ffffff;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  margin-bottom: 60px;
+}
+
+.efficient__title {
+  margin-bottom: 25px;
+}
+
+.efficient__inner {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.efficient__item {
+  .card(#EAF2F5);
+  display: flex;
+  flex-direction: column;
+  padding: 25px 10px;
+  width: calc(50% - 5px);
+  margin-right: 10px;
+  margin-bottom: 10px;
+  align-items: center;
+  text-align: center;
+
+  &:nth-child(2n) {
+    margin-right: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &_w100 {
+    width: 100%;
+    flex-shrink: 0;
+  }
+}
+
+.efficient__item-img {
+  max-width: 40px;
+  max-height: 40px;
+  margin-bottom: 10px;
+}
+
+.efficient__item-title {
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 12px;
+  margin-bottom: 5px;
+}
+
+.efficient__item-text {
+  font-size: 12px;
+  line-height: 12px;
+}
+
+@media (min-width: @middle) {
+  .efficient__inner {
+    justify-content: center;
+  }
+
+  .efficient__item {
+    padding-right: 30px;
+    padding-left: 30px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: calc(33% - 15px);
+
+    &:nth-child(2n) {
+      margin-right: 20px;
+    }
+
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
+@media (min-width: @container) {
+  .efficient__title {
+    margin-bottom: 35px;
+  }
+
+  .efficient__inner {
+    padding-bottom: 90px;
+  }
+  .efficient__item {
+    margin-right: 25px;
+    width: calc(25% - 20px);
+
+    &:nth-child(3n) {
+      margin-right: 25px;
+    }
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+  }
+}
+
+// how-it-happens ///////////////////////////////////////////////////////////////////////////////////
+
+.how-it-happens {
+  margin-bottom: 60px;
+  padding: 0 5px;
+}
+
+.how-it-happens__title {
+  margin-bottom: 15px;
+}
+
+.how-it-happens__text {
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.how-it-happens__reception {
+  .card(#fff);
+  display: flex;
+  flex-direction: column;
+  padding: 35px 60px 40px 20px;
+  box-shadow: 0px 81px 120px -77px rgba(34, 37, 59, 0.04);
+  margin-bottom: 20px;
+}
+
+.how-it-happens__reception-item {
+  padding-bottom: 25px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eaf2f5;
+  }
+}
+
+.how-it-happens__reception-number {
+  font-weight: 600;
+  font-size: 50px;
+  line-height: 30px;
+  color: #38bff2;
+  margin-bottom: 10px;
+
+  &:not(:first-child) {
+    margin-top: 30px;
+  }
+}
+
+.how-it-happens__reception-item:not(:first-child) {
+  margin-top: 30px;
+}
+
+.how-it-happens__reception-title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 19px;
+  display: block;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.how-it-happens__reception-text {
+  font-size: 12px;
+  line-height: 14px;
+}
+
+.how-it-happens__start-learning {
+  .card(#fff);
+  padding: 10px 20px 25px 25px;
+}
+
+.how-it-happens__start-learning-btn {
+  .button();
+  width: 100%;
+  padding: 25px 0;
+  font-size: 18px;
+  line-height: 96.69%;
+  width: 100%;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  margin-bottom: 15px;
+}
+
+.how-it-happens__start-learning-text {
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 18px;
+  text-align: center;
+}
+
+// another ///////////////////////////////////////////////////////////////////////////////////
+
+.another {
+  border-radius: 30px;
+  background: #fff;
+  padding: 10px 0;
+  margin-bottom: 60px;
+}
+
+.another__inner {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.another__item {
+  .card(#EAF2F5);
+  padding: 25px 20px 25px 30px;
+  margin: 12px 0;
+  width: 100%;
+  max-width: 400px;
+}
+
+.another__item-img {
+  width: 100%;
+  max-width: 270px;
+  margin: 0 auto;
+  display: block;
+}
+
+.another__item-title {
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 19px;
+  margin-bottom: 15px;
+}
+
+.another__item-text {
+  font-size: 13px;
+  line-height: 17px;
+  margin-top: 15px;
+}
+
+// tuition-fees ///////////////////////////////////////////////////////////////////////////////////
+
+.tuition-fees__title {
+  margin-bottom: 30px;
+}
+
+.tuition-fees__content1 {
+  display: flex;
+  // flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 50px;
+}
+
+.tuition-fees__content1-item {
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 240px;
+}
+
+.tuition-fees__content1-img {
+  width: 50px;
+  height: 50px;
+}
+
+.tuition-fees__content1-text {
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.tuition-fees__content2 {
+  .card(#fff);
+  padding: 20px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  overflow-x: auto;
+  max-width: @container;
+}
+
+.tuition-fees__table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.tuition-fees__table-row {
+  &:nth-child(2n - 1) {
+    background: #f3f3f3;
+  }
+}
+
+.tuition-fees__table-row-top {
+  background: none;
+}
+
+.tuition-fees__table-th {
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 25px;
+  text-align: left;
+  white-space: nowrap;
+  color: #38bff2;
+  padding: 15px;
+}
+
+.tuition-fees__table-td {
+  border: none;
+  font-size: 14px;
+  line-height: 25px;
+  white-space: nowrap;
+  padding: 15px 20px;
+  width: 33%;
+
+  &:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+  }
+
+  &:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+}
+
+.tuition-fees__table-tf {
+  padding: 0 20px;
+  padding-top: 25px;
+  font-weight: 600;
+  font-size: 19px;
+  line-height: 25px;
+  white-space: nowrap;
+}
+
+.tuition-fees__table-note {
+  display: none;
+}
+
+.tuition-fees__content3 {
+  .card(#EAF2F5);
+  padding: 45px 25px 50px;
+  text-align: center;
+}
+
+.tuition-fees__content3-img {
+  margin-bottom: 20px;
+}
+
+.tuition-fees__content3-text {
+  font-size: 14px;
+  line-height: 22px;
+  margin-bottom: 20px;
+}
+
+.tuition-fees__content3-btn {
+  .button();
+
+  font-size: 18px;
+  line-height: 96.69%;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.tuition-fees__content3-btn-img {
+  margin-bottom: -3px;
+  margin-left: 8px;
+}
+
+@media (min-width: @middle) {
+  .intro {
+    background: url('../img/intro-bg-bottom-large.png') no-repeat;
+    background-size: contain;
+    background-position-y: bottom;
+    padding-bottom: 5%;
+    padding-top: 70px;
+  }
+
+  .intro__inner {
+    display: flex;
+  }
+  .intro__text-wrapper {
+    text-align: left;
+    max-width: 645px;
+  }
+
+  .intro__title {
+    text-align: left;
+    border-bottom: 0;
+  }
+
+  .intro__scroll {
+    display: none;
+  }
+
+  .intro__text {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  .technologies {
+    padding-top: 30px;
+  }
+
+  .technologies__inner {
+    display: flex;
+    align-items: flex-start;
+    padding: 40px;
+  }
+
+  .technologies__img {
+    display: block;
+    margin-right: 30px;
+    width: 40%;
+    margin-bottom: -40px;
+    margin-right: 60px;
+    width: 40%;
+  }
+
+  .how-it-happens__reception {
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .how-it-happens__reception-item {
+    max-width: 500px;
+    // width: 100%;
+    // height: 100px;
+  }
+
+  .how-it-happens__text {
+    width: 650px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  .how-it-happens__start-learning {
+    display: flex;
+    align-items: center;
+    width: 550px;
+    margin: 0 auto;
+    padding: 12px;
+    padding-right: 30px;
+  }
+
+  .how-it-happens__start-learning-btn {
+    max-width: 250px;
+    margin-bottom: 0;
+  }
+
+  .how-it-happens__start-learning-text {
+    text-align: left;
+    margin-left: 25px;
+  }
+
+  .another__inner {
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  .another__item {
+    width: calc(50% - 30px);
+
+    &_text {
+      margin-left: 30px;
+    }
+  }
+}
+
+@media (min-width: @large) {
+  .intro__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .intro__title-decor {
+    &:before,
+    &::after {
+      font-size: 40px;
+    }
+  }
+
+  .technologies__inner {
+    padding-left: 100px;
+    padding-right: 100px;
+    justify-content: space-between;
+  }
+
+  .technologies__title {
+    margin-bottom: 40px;
+  }
+
+  .technologies__list {
+    max-width: 480px;
+  }
+
+  .technologies__item {
+    flex-grow: 0;
+    padding: 12px 26px;
+  }
+
+  .efficient__item-title {
+    font-size: 16px;
+    line-height: 18px;
+    margin-bottom: 10px;
+  }
+
+  .technologies__text {
+    display: block;
+    position: absolute;
+    bottom: -80px;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 25px;
+  }
+
+  .efficient__title {
+    width: 600px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+  }
+
+  .how-it-happens__text {
+    font-size: 16px;
+    line-height: 20px;
+  }
+
+  .how-it-happens__reception {
+    justify-content: center;
+    align-items: start;
+    padding: 55px;
+  }
+
+  .how-it-happens__reception-item {
+    width: calc(33% - 40px);
+    padding-bottom: 0;
+
+    &:not(:last-child) {
+      border-bottom: none;
+    }
+
+    &:not(:first-child) {
+      margin-top: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: 60px;
+    }
+
+    &:not(:last-child) {
+      padding-right: 60px;
+      border-right: 1px solid #eaf2f5;
+    }
+  }
+
+  .how-it-happens__reception-title {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 30px;
+  }
+
+  .how-it-happens__reception-text {
+    font-size: 16px;
+    line-height: 23px;
+  }
+
+  .another__item {
+    padding: 50px;
+    // width: 100%;
+
+    &_3 {
+      order: 3;
+      margin-left: 0;
+      margin-right: 30px;
+    }
+
+    &_4 {
+      order: 4;
+    }
+
+    &_text {
+      max-width: 730px;
+      flex-grow: 1;
+    }
+  }
+
+  .another__item-title {
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 30px;
+  }
+
+  .another__item-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 25px;
+    margin-top: 5px;
+  }
+  .tuition-fees__content3 {
+    display: flex;
+    align-items: flex-start;
+    text-align: left;
+    padding: 65px 50px;
+  }
+
+  .tuition-fees__content3-img {
+    margin-right: 30px;
+    margin-bottom: 0;
+  }
+  .tuition-fees__content3-text {
+    margin-right: 25px;
+    margin-bottom: 0;
+  }
+
+  .tuition-fees__content3-btn {
+    max-width: 320px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+
+  .tuition-fees__table-note {
+    display: block;
+    max-width: @container;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 35px;
+  }
+}

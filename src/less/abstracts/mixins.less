@@ -1,0 +1,24 @@
+.flex-center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button() {
+  background: #f15525;
+  border-radius: 82px;
+  color: white;
+  font-size: 18px;
+  transition: background 0.2s;
+
+  &:hover,
+  &:focus {
+    background: #38bff2;
+    transition: background 0.2s;
+  }
+}
+
+.card(@bg, @br: 30px) {
+  border-radius: @br;
+  background: @bg;
+}
